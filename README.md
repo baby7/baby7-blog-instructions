@@ -19,6 +19,8 @@
 
 可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器
 
+关于阿里加速地址可以从[这里](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors)获取
+
 ```
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
