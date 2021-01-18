@@ -1,0 +1,58 @@
+version: '3'
+services:
+  redis-server:
+    image: redis:rc-buster
+    ports:
+      - "6379:6379"
+    networks:
+      baby7-blog-network:
+        aliases:
+          - redis
+  mysql-server:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: baby7blog
+    volumes:
+      - ./blog.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      baby7-blog-network:
+        aliases:
+          - mysql
+  baby7-blog-server:
+    image: registry.cn-hangzhou.aliyuncs.com/baby7/baby7-blog-server:v0.1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-server
+      - redis-server
+    networks:
+      baby7-blog-network:
+        aliases:
+          - blog-server
+    restart: always
+  baby7-blog-frontend:
+    image: registry.cn-hangzhou.aliyuncs.com/baby7/baby7-blog-frontend:v0.1
+    ports:
+      - "80:80"
+    depends_on:
+      - baby7-blog-server
+    networks:
+      baby7-blog-network:
+        aliases:
+          - blog-frontend
+    restart: always
+  baby7-blog-manage:
+    image: registry.cn-hangzhou.aliyuncs.com/baby7/baby7-blog-manage:v0.1
+    ports:
+      - "8888:80"
+    depends_on:
+      - baby7-blog-server
+    networks:
+      baby7-blog-network:
+        aliases:
+          - blog-manage
+    restart: always
+networks:
+  baby7-blog-network:
