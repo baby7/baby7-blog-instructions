@@ -27,13 +27,13 @@
 
 [Docker 镜像加速](https://www.runoob.com/docker/docker-mirror-acceleration.html)
 
-> ### 然后安装docker-compose
+> ### 三、然后安装docker-compose
 
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-> ### 取得基本配置
+> ### 四、取得基本配置
 
 #### 基本SQL文件
 
@@ -55,7 +55,7 @@ wget https://cdn.baby7blog.com/docker/v0.1/docker-compose/docker-hub/docker-comp
 wget https://cdn.baby7blog.com/docker/v0.1/docker-compose/docker-aliyun/docker-compose.yml
 ```
 
-> ### 启动容器
+> ### 五、启动容器
 
 ```
 docker-compose up -d
