@@ -9,9 +9,13 @@
 
 ## 通过docker-compose安装
 
-> ### 一、安装／升级Docker客户端
+> ### 一、安装Docker客户端
 
-推荐安装1.10.0以上版本的Docker客户端，参考文档[docker-ce](https://developer.aliyun.com/article/110806)
+推荐安装1.10.0以上版本的Docker客户端
+
+```
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+```
 
 > ### 二、docker镜像加速(选做)
 
