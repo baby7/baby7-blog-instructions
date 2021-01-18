@@ -7,7 +7,7 @@
 
 ## 通过docker-compose安装
 
-> ### 一、首先安装docker
+> ### 一、安装docker
 
 参考教程安装：
 
@@ -27,7 +27,7 @@
 
 [Docker 镜像加速](https://www.runoob.com/docker/docker-mirror-acceleration.html)
 
-> ### 三、然后安装docker-compose
+> ### 三、安装docker-compose
 
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
