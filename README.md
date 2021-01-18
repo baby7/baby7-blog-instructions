@@ -9,25 +9,26 @@
 
 ## 通过docker-compose安装
 
-> ### 一、安装docker
+> ### 一、安装／升级Docker客户端
 
-参考教程安装：
-
-[Ubuntu Docker 安装](https://www.runoob.com/docker/ubuntu-docker-install.html)
-
-[Debian Docker 安装](https://www.runoob.com/docker/debian-docker-install.html)
-
-[CentOS Docker 安装](https://www.runoob.com/docker/centos-docker-install.html)
-
-[Windows Docker 安装](https://www.runoob.com/docker/windows-docker-install.html)
-
-[MacOS Docker 安装](https://www.runoob.com/docker/macos-docker-install.html)
+推荐安装1.10.0以上版本的Docker客户端，参考文档[docker-ce](https://developer.aliyun.com/article/110806)
 
 > ### 二、docker镜像加速(选做)
 
-参考教程配置，强烈建议使用阿里镜像源：
+针对Docker客户端版本大于 1.10.0 的用户
 
-[Docker 镜像加速](https://www.runoob.com/docker/docker-mirror-acceleration.html)
+可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器
+
+```
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["你自己的阿里加速地址"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
 
 > ### 三、安装docker-compose
 
